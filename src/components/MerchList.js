@@ -9,6 +9,7 @@ function MerchList(props) {
     {props.merchList.map((merch) =>
       <Merch 
         whenMerchClicked = { props.onMerchSelection }
+        whenRestockClicked = { props.onRestock }
         name={merch.name}
         price={merch.price}
         description={merch.description}
@@ -22,7 +23,8 @@ function MerchList(props) {
 
 MerchList.propTypes = {
   merchList: PropTypes.array,
-  onMerchSelection: PropTypes.func
+  onMerchSelection: PropTypes.func,
+  onRestock: PropTypes.func
 };
 
 export default MerchList;

@@ -14,15 +14,7 @@ class MerchControl extends React.Component {
       selectedMerch: null
     };
   }
-
-  restock = (inputId) => {
-    this.mainMerchList.forEach((aMerch) => {
-        if(aMerch.id === inputId){
-          aMerch.quantity++;
-        }
-      })
-    }
-
+  
   handleClick = () => {
     if (this.state.selectedMerch != null) {
       this.setState({
@@ -47,10 +39,14 @@ class MerchControl extends React.Component {
     this.setState({selectedMerch: selectedMerch});
   }
 
+  restock = (inputId) => {
+    this.state.mainMerchList.filter(merch => merch.id === inputId)[0].quantity++;
+    //console.log(this.state.mainMerchList.filter(merch => merch.id === inputId)[0]);
+    this.setState({formVisibleOnPage: false});
+  }
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
-    // let restockState = null;
     if (this.state.selectedMerch != null) {
       currentlyVisibleState = <MerchDetail merch = {this.state.selectedMerch} />
       buttonText = "Return to Merch List";
@@ -60,8 +56,7 @@ class MerchControl extends React.Component {
       currentlyVisibleState = <NewMerchForm onNewMerchCreation={this.handleAddingNewMerchToList} /> ;
       buttonText = "Return to Merch List";
     } else {
-      currentlyVisibleState = <MerchList merchList={this.state.mainMerchList} onMerchSelection={this.handleChangingSelectedMerch} />;
-      // restockState = <Merch onRestock={this.restock}/>;
+      currentlyVisibleState = <MerchList merchList={this.state.mainMerchList} onMerchSelection={this.handleChangingSelectedMerch} onRestock={this.restock} />;
       buttonText = "Add Merch";
     }
     return (

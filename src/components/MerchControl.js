@@ -15,13 +15,13 @@ class MerchControl extends React.Component {
     };
   }
 
-  // restock = (inputId) => {
-  //   this.mainMerchList.forEach((aMerch) => {
-  //       if(aMerch.id === inputId){
-  //         aMerch.quantity++;
-  //       }
-  //     })
-  //   }
+  restock = (inputId) => {
+    this.mainMerchList.forEach((aMerch) => {
+        if(aMerch.id === inputId){
+          aMerch.quantity++;
+        }
+      })
+    }
 
   handleClick = () => {
     if (this.state.selectedMerch != null) {

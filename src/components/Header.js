@@ -1,7 +1,6 @@
 import React from "react";
 import merchsImage from "./../img/merchs.png";
 
-
 function Header() {
   return (
     <React.Fragment>

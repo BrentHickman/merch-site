@@ -1,12 +1,13 @@
 import React from "react";
 import Merch from "./Merch";
 import PropTypes from "prop-types";
+import { v4 } from 'uuid';
 
-function MerchList(props) {
+function MerchCart(props) {
   return (
     <React.Fragment>
     <hr/>
-    {props.merchList.map((merch) =>
+    {props.merchCart.map((merch) =>
       <Merch 
         whenMerchClicked = { props.onMerchSelection }
         whenRestockClicked = { props.onRestock }
@@ -22,10 +23,10 @@ function MerchList(props) {
   );
 }
 
-MerchList.propTypes = {
-  merchList: PropTypes.array,
+MerchCart.propTypes = {
+  merchCart: PropTypes.array,
   onMerchSelection: PropTypes.func,
   onRestock: PropTypes.func
 };
 
-export default MerchList;
+export default MerchCart;

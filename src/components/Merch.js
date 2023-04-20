@@ -12,9 +12,8 @@ function Merch(props) {
         <p>Left in stock: {props.quantity}</p>
         <hr />
       </div>
-      <div onClick={() => props.whenRestockClicked(props.id)}>
-      <button type="submit">Restock</button>
-      </div>
+        <button onClick={() => props.whenAddToCartClicked(props)} type="submit">Add to Cart</button><span>   </span>
+        <button onClick={() => props.whenRestockClicked(props.id)} type="submit">Restock</button><span>   </span>
     </React.Fragment>
   );
 }
